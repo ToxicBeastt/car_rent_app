@@ -95,6 +95,7 @@ const Typography: React.FC<CustomTypographyProps> = (
 		<MuiTypography
 			component={as}
 			sx={getVariantStyles()}
+			color='black'
 			{...props}
 		>
 			{children}

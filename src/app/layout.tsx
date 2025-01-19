@@ -22,7 +22,7 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const isDarkMode = true;
+  const isDarkMode = false;
 
   return (
     <html lang="en" className={isDarkMode ? 'dark' : ''}>

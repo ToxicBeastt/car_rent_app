@@ -33,6 +33,7 @@ export interface queryParam {
 }
 
 export interface Car {
+    id: number;
     brand: string;
     model: string;
     licensePlate: string;
@@ -44,4 +45,14 @@ export interface ListResponse {
 	size: number
 	total: number
 	totalPages: number
+}
+
+export interface Rental {
+    id: number;
+    carId: number;
+    userId: number;
+    startDate: Date;
+    endDate: Date;
+    car: Car;
+    user: User;
 }

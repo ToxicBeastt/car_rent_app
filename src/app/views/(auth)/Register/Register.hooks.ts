@@ -17,10 +17,10 @@ const useRegister = () => {
       resolver: zodResolver(RegisterForm),
       defaultValues: {
         username: "",
+        fullname: "",
         password: "",
         contact: "",
         address: "",
-        phone_number: "",
         sim_number: "",
       },
     });

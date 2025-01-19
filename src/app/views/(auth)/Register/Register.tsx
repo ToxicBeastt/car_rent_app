@@ -3,13 +3,7 @@
 import useRegister from "./Register.hooks";
 
 const Register = () => {
-    const {
-        error,
-        loading,
-        register,
-        handleSubmit,
-        onSubmit
-    } = useRegister();
+  const { error, loading, register, handleSubmit, onSubmit } = useRegister();
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-800">
@@ -29,6 +23,20 @@ const Register = () => {
           <input
             id="username"
             {...register("username")}
+            className="border rounded w-full p-2 bg-gray-700 text-white"
+            required
+          />
+        </div>
+        <div className="mb-4">
+          <label
+            className="block text-sm font-medium mb-1 text-gray-300"
+            htmlFor="username"
+          >
+            Full Name
+          </label>
+          <input
+            id="fullname"
+            {...register("fullname")}
             className="border rounded w-full p-2 bg-gray-700 text-white"
             required
           />
@@ -72,20 +80,6 @@ const Register = () => {
           <input
             id="address"
             {...register("address")}
-            className="border rounded w-full p-2 bg-gray-700 text-white"
-            required
-          />
-        </div>
-        <div className="mb-4">
-          <label
-            className="block text-sm font-medium mb-1 text-gray-300"
-            htmlFor="password"
-          >
-            Phone number
-          </label>
-          <input
-            id="phone_number"
-            {...register("phone_number")}
             className="border rounded w-full p-2 bg-gray-700 text-white"
             required
           />

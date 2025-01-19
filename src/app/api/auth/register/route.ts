@@ -4,9 +4,10 @@ import { db } from '@/lib/db'
 
 export async function POST(req: Request) {
 	try {
+		
 		const body = await req.json()
-		const { username, password, contact, address, phone_number, sim_number } = body
-
+		const { username, fullname, password, contact } = body
+		
 		const dupUsername = await db.user.findUnique({
 			where: { username: username }
 		})
@@ -19,22 +20,21 @@ export async function POST(req: Request) {
 				{ status: 409 }
 			)
 		}
+		
 		const salt = bcryptjs.genSaltSync(10)
 		const hashedPassword = bcryptjs.hashSync(password, salt)
 		const newUser = await db.user.create({
 			data: {
 				username: username,
+				fullname: fullname,
 				contact: contact,
 				password: hashedPassword,
-				address: address,
-				phone_number: phone_number,
-				sim_number: sim_number
 			}
 		})
 		// eslint-disable-next-line @typescript-eslint/no-unused-vars
 		const { password: newUserPassword, ...rest } = newUser
 
-		return NextResponse.json({ user: rest, message: 'sukses' }, { status: 201 })
+		return NextResponse.json({ user: rest, message: 'success' }, { status: 201 })
 	} catch (error) {
 		return NextResponse.json({ message: 'regis error' }, { status: 500 })
 	}
