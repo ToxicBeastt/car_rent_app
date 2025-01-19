@@ -6,7 +6,6 @@ const authHooks = async () => {
 	const session = (await getServerSession(authOptions)) as User | null
 
 	if (session) {
-        console.log(session)
 		const { user } = session
 		const { username, id } = user
 		return {

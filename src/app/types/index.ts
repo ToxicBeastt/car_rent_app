@@ -1,9 +1,16 @@
 export interface Profile {
     id: string;
-    username: string; // Ensure username is included
+    username: string;
 }
 
 export interface User {
-    user: Profile; // This should match the structure used in auth.ts
-    username: string; // Add username directly to User interface
+    user: Profile;
+    username: string;
+}
+
+export interface MenuItem {
+	label: string
+	href?: string
+	children?: MenuItem[]
+	id: string
 }
