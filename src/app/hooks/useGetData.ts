@@ -26,7 +26,7 @@ const useGetData = <T, R = T>(
 					'Content-Type': 'application/json'
 				}
 			});
-
+			console.log(response)
 			if (!response.ok) {
 				const errorData = await response.json();
 				setError(errorData.message || 'Something went wrong');

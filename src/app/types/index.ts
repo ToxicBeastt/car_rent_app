@@ -9,8 +9,39 @@ export interface User {
 }
 
 export interface MenuItem {
+    label: string;
+    href?: string;
+    children?: MenuItem[];
+    id: string;
+}
+
+export interface ColumnTable {
 	label: string
-	href?: string
-	children?: MenuItem[]
-	id: string
+	key: string
+	type?: 'string' | 'image' | 'action-detail' | 'action' | 'status' | 'component'
+	sortable?: boolean
+	width?: boolean
+	size?: number,
+	hidden?: boolean;
+}
+
+export interface queryParam {
+	page: string
+	size: string
+	search?: string
+	date?: Date | null;
+}
+
+export interface Car {
+    brand: string;
+    model: string;
+    licensePlate: string;
+    rentalRate: number;
+}
+
+export interface ListResponse {
+	page: number
+	size: number
+	total: number
+	totalPages: number
 }
