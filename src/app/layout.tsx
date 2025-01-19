@@ -22,8 +22,10 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const isDarkMode = true;
+
   return (
-    <html lang="en">
+    <html lang="en" className={isDarkMode ? 'dark' : ''}>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >

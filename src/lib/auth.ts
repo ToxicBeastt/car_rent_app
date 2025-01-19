@@ -41,7 +41,6 @@ export const authOptions: NextAuthOptions = {
 					select: {
 						id: true,
 						username: true,
-						fullname: true,
 						password: true,
 						status: true
 					}
