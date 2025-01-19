@@ -28,7 +28,7 @@ const useLogIn = () => {
         redirect: false,
       });
       setLoading(false);
-  
+      console.log(loginData)
       if (loginData?.error) {
         Swal.fire({
           title: "Error!",

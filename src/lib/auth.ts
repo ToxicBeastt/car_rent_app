@@ -4,12 +4,9 @@ import { NextAuthOptions } from 'next-auth'
 import CredentialsProvider from 'next-auth/providers/credentials'
 import { db } from './db'
 
-type Role = 'admin' | 'manager' | 'employee' | 'user'
-
 interface UserWithRemember {
 	id: string
 	username: string
-	role: Role
 	remember: string
 }
 
@@ -62,7 +59,6 @@ export const authOptions: NextAuthOptions = {
 				return {
 					id: `${existUser.id}`,
 					username: existUser.username,
-					name: existUser.fullname,
 					remember: remember ?? 'false'
 				}
 			}
@@ -99,8 +95,7 @@ export const authOptions: NextAuthOptions = {
 					...session,
 					user: {
 						...session.user,
-						username: token.username,
-						role: token.role as Role
+						username: token.username
 					},
 					expires: expires.toISOString(),
 					maxAge: maxAge
